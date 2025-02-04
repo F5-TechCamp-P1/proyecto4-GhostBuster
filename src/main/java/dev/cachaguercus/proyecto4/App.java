@@ -1,4 +1,4 @@
-package dev.cachaguercu.proyecto4;
+package dev.cachaguercus.proyecto4;
 public final class App {
     private App() {}
 
