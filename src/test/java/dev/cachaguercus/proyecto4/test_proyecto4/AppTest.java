@@ -1,4 +1,4 @@
-package dev.mabel.test_java;
+package dev.cachaguercus.proyecto4.test_proyecto4;
 
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package dev.mabel.template_java;
+package dev.cachaguercus.proyecto4;
 public final class App {
     private App() {}
 
