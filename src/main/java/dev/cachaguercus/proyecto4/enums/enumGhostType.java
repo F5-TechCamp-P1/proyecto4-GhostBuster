@@ -1,13 +1,22 @@
 package dev.cachaguercus.proyecto4.enums;
 
 public enum enumGhostType {
+    CLASE_I ("Manifestación menor"),
+    CLASE_II ("Aparición móvil"),
+    CLASE_III ("Entidad inteligente"),
+    CLASE_IV ("Fantasma histórico"),
+    CLASE_V ("Espíritu antropomorfo"),
+    CLASE_VI ("Espíritu demoníaco"),
+    CLASE_VII("Entidad ultraterrena");
 
-    CLASE_I,
-    CLASE_II,
-    CLASE_III,
-    CLASE_IV,
-    CLASE_V,
-    CLASE_VI,
-    CLASE_VII
+    private final String ghostTypeDescription;
+
+    private enumGhostType (String ghostTypeDescription) {
+        this.ghostTypeDescription = ghostTypeDescription;
+    }
+
+    public String getGhostTypeDescription(){
+        return ghostTypeDescription;
+    }
 
 }
