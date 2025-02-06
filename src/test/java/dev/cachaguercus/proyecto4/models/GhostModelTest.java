@@ -3,6 +3,8 @@ package dev.cachaguercus.proyecto4.models;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import dev.cachaguercus.proyecto4.enums.enumDangerLevel;
 import dev.cachaguercus.proyecto4.enums.enumGhostType;
 import java.time.LocalDate;
@@ -15,19 +17,19 @@ public class GhostModelTest {
 
         GhostModel ghost1 = new GhostModel(1, "ghost1", enumGhostType.CLASE_I, enumDangerLevel.ALTO, "vomitar verde", LocalDate.now());
 
-        ghost1.getId();
-        ghost1.getName();
-        ghost1.getGhost_type();
-        ghost1.getDanger_level();
-        ghost1.getSpecial_skill();
-        ghost1.getCapture_date();
+        int id = ghost1.getId();
+        String name = ghost1.getName();
+        enumGhostType ghost_type = ghost1.getGhost_type();
+        enumDangerLevel danger_level = ghost1.getDanger_level();
+        String special_skill = ghost1.getSpecial_skill();
+        LocalDate local_date = ghost1.getCapture_date();
 
-        assertEquals(ghost1.id, ghost1.getId());
-        assertEquals(ghost1.name, ghost1.getName());
-        assertEquals(ghost1.ghost_type, ghost1.getGhost_type());
-        assertEquals(ghost1.danger_level, ghost1.getDanger_level());
-        assertEquals(ghost1.special_skill, ghost1.getSpecial_skill());
-        assertEquals(ghost1.capture_date, ghost1.getCapture_date());
+        assertEquals(1, id);
+        assertEquals("ghost1", name);
+        assertEquals(enumGhostType.CLASE_I, ghost_type);
+        assertEquals(enumDangerLevel.ALTO, danger_level);
+        assertEquals("vomitar verde", special_skill);
+        assertEquals(LocalDate.now(), local_date);
 
     }
 }
