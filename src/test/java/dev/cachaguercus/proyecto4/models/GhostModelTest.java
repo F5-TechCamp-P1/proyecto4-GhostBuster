@@ -12,7 +12,7 @@ import java.time.LocalDate;
 public class GhostModelTest {
 
     @Test
-    @DisplayName("when the GB selects a ghost, all the expected info is provide")
+    @DisplayName("when the GB selects a ghost, all the expected info is provided")
     void testGetGhostModel() {
 
         GhostModel ghost1 = new GhostModel(1, "ghost1", enumGhostType.CLASE_I, enumDangerLevel.ALTO, "vomitar verde", LocalDate.now());
@@ -30,6 +30,24 @@ public class GhostModelTest {
         assertEquals(enumDangerLevel.ALTO, danger_level);
         assertEquals("vomitar verde", special_skill);
         assertEquals(LocalDate.now(), local_date);
-
     }
+
+    @Test
+    @DisplayName("when the GB captures a ghost, they provide the expected info")
+    void testSetGhostModel() {
+        GhostModel ghost2 = new GhostModel(0, null, null, null, null, null);
+
+        ghost2.setName("ghost2");
+        ghost2.setGhost_type(enumGhostType.CLASE_II);
+        ghost2.setDanger_level(enumDangerLevel.CRITICO);
+        ghost2.setSpecial_skill("vomitar azul");    
+        ghost2.setCapture_date(LocalDate.now());
+
+        assertEquals("ghost2", ghost2.getName());
+        assertEquals(enumGhostType.CLASE_II, ghost2.getGhost_type());
+        assertEquals(enumDangerLevel.CRITICO, ghost2.getDanger_level());
+        assertEquals("vomitar azul", ghost2.getSpecial_skill());
+        assertEquals(LocalDate.now(), ghost2.getCapture_date());
+    }
+    
 }
