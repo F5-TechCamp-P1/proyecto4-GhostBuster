@@ -47,4 +47,26 @@ public class GhostModel {
         return capture_date;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setGhost_type(enumGhostType ghost_type) {
+        this.ghost_type = ghost_type;
+    }
+
+    public void setDanger_level(enumDangerLevel danger_level) {
+        this.danger_level = danger_level;
+    }
+
+    public void setSpecial_skill(String special_skill) {
+        this.special_skill = special_skill;
+    }
+
+    public void setCapture_date(LocalDate capture_date) {
+        this.capture_date = capture_date;
+    }
+
+    
+
 }
