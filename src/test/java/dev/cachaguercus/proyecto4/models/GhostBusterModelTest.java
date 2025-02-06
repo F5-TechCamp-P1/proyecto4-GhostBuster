@@ -7,26 +7,21 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 import java.util.ArrayList;
+import dev.cachaguercus.proyecto4.models.GhostModel;
 
 public class GhostBusterModelTest {
-
-    private GhostBusterModel ghostBusterModel;
-
-    @BeforeEach
-    void setUp() {
-        GhostBusterModel ghostBusterModel = new GhostBusterModel();
-    }
 
     @Test
     @DisplayName("Should get GhostBuster name and Ghost trap")
     void testGetGhostbusterModel() {
 
-        GhostBusterModel cachaguercu = new GhostBusterModel("cachaguercu", List<GhostModel>);
-        String name = cachaguercu.getName();
-        List<GhostModel> ghostList = cachaguercu.getList();
+        List<GhostModel> ghostTrap = new ArrayList<>();
+        GhostBusterModel ghostBuster = new GhostBusterModel("Cachaguercu", ghostTrap);
+        String name = ghostBuster.getName();
+        List<GhostModel> ghostList = ghostBuster.getGhostTrap();
 
-        assertEquals("cachaguercu", name);
-        assertEquals(List<GhostModel> ghostList);
+        assertEquals("Cachaguercu", name);
+        assertEquals(ghostTrap, ghostList);
     }
 
 }
