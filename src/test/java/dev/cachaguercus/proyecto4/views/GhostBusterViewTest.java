@@ -83,8 +83,20 @@ public class GhostBusterViewTest {
         
     }
 
+    @Test
+    @DisplayName("Should ask to enter a special skill for the captured ghost")
+    void testDisplaySpecialSkill() {
+        GhostBusterView ghostBusterView = new GhostBusterView();
+        String expectedMessage = "Añade la habilidad especial del fantasma: ";
+        String actualMessage = ghostBusterView.displaySpecialSkill();
+        assertEquals(expectedMessage, actualMessage);        
+    }
+
+
+
     
 
+    
     
 
     
