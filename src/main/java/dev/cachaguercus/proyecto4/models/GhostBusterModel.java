@@ -30,5 +30,8 @@ public class GhostBusterModel {
         this.ghostTrap.add(ghost);
     }
 
+    public void removeGhost(GhostModel ghost) {
+        this.ghostTrap.remove(ghost);
+    }   
     
 }
