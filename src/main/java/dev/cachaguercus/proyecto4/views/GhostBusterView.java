@@ -87,4 +87,8 @@ public class GhostBusterView {
         return "Ingresa el ID del fantasma que quieres liberar: ";
     }
 
+    public String displaySuccessfulRelease(){
+        return "Fantasma liberado con éxito";
+    }
+
 }

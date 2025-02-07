@@ -162,7 +162,7 @@ public class GhostBusterViewTest {
     void testDisplaySuccessfulRelease() {
         GhostBusterView ghostBusterView = new GhostBusterView();
         String expectedMessage = "Fantasma liberado con éxito";
-        String actualMessage = ghostBusterView.testDisplaySuccessfulRelease();
+        String actualMessage = ghostBusterView.displaySuccessfulRelease();
         assertEquals(expectedMessage, actualMessage);
     }
 }
