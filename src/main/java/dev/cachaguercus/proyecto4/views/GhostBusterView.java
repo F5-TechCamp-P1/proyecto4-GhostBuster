@@ -40,4 +40,8 @@ public class GhostBusterView {
                 "7. Clase VII - Entidad ultraterrena";
     }
 
+    public String displayDangerLevels(){
+        return "Selecciona el nivel de peligro (Bajo, Medio, Alto, Crítico):";
+    }
+
 }
