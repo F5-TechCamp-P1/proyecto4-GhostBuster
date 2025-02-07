@@ -9,7 +9,11 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 
 import java.util.List;
+import java.time.LocalDate;
 import java.util.ArrayList;
+
+import dev.cachaguercus.proyecto4.enums.enumDangerLevel;
+import dev.cachaguercus.proyecto4.enums.enumGhostType;
 import dev.cachaguercus.proyecto4.models.GhostModel;
 
 public class GhostBusterModelTest {
@@ -42,9 +46,10 @@ public class GhostBusterModelTest {
     @DisplayName("Should add a new ghost to the trap")
     void testCaptureGhost() {
         GhostBusterModel ghostBusterModel = new GhostBusterModel(null, null);
+        GhostModel casper = new GhostModel(1, "casper", enumGhostType.CLASE_I, enumDangerLevel.BAJO, "aparecerse y sonreir", LocalDate.now());
         List<GhostModel> list = ghostBusterModel.getGhostTrap();
-        ghostBusterModel.captureGhost();
-        assertThat(list, contains(ghostBusterModel.getGhostModel()));
+        ghostBusterModel.captureGhost(casper);
+        assertThat(list, contains(casper));
     }    
 
 }

@@ -11,7 +11,7 @@ public class GhostBusterModel {
 
     public GhostBusterModel(String name, List<GhostModel> ghostTrap) {
         this.name = name;
-        this.ghostTrap = ghostTrap;
+        this.ghostTrap = new ArrayList<>();
     }
     public String getName() {
         return name;
@@ -24,6 +24,10 @@ public class GhostBusterModel {
     }
     public void setGhostTrap(List<GhostModel> ghostTrap) {
         this.ghostTrap = ghostTrap;
+    }
+
+    public void captureGhost(GhostModel ghost) {
+        this.ghostTrap.add(ghost);
     }
 
     
