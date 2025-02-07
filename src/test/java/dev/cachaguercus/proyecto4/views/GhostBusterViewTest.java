@@ -51,7 +51,7 @@ public class GhostBusterViewTest {
         ghostBusterView.displayCaptureGhost();
         String expectedMessage = "Capturar un Nuevo Fantasma\r\n" + 
                         "============================================\r\n" + 
-                        "Ingresa el nombre del fantasma:";
+                        "Ingresa el nombre del fantasma: ";
         String actualMessage = ghostBusterView.displayCaptureGhost();
         assertEquals(expectedMessage, actualMessage);
         

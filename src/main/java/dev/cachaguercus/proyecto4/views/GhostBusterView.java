@@ -23,4 +23,10 @@ public class GhostBusterView {
                 "Por favor, selecciona una opción (1-6):";
     }
 
+    public String displayCaptureGhost() {
+        return "Capturar un Nuevo Fantasma\r\n" + 
+                "============================================\r\n" + 
+                "Ingresa el nombre del fantasma: "; 
+    }
+
 }
