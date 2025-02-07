@@ -157,5 +157,12 @@ public class GhostBusterViewTest {
         assertEquals(expectedMessage, actualMessage);
     }
 
-
+    @Test
+    @DisplayName("When the ghostbuster released a ghost, should display a success message")
+    void testDisplaySuccessfulRelease() {
+        GhostBusterView ghostBusterView = new GhostBusterView();
+        String expectedMessage = "Fantasma liberado con éxito";
+        String actualMessage = ghostBusterView.testDisplaySuccessfulRelease();
+        assertEquals(expectedMessage, actualMessage);
+    }
 }
