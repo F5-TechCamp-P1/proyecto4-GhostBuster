@@ -73,6 +73,18 @@ public class GhostBusterViewTest {
         assertEquals(expectedMessage, actualMessage);
     }
 
+    @Test
+    @DisplayName("Should ask to select a danger level and show the options")
+    void testDisplayDangerLevels() {
+        GhostBusterView ghostBusterView = new GhostBusterView();
+        String expectedMessage = "Selecciona el nivel de peligro (Bajo, Medio, Alto, Crítico):";
+        String actualMessage = ghostBusterView.displayDangerLevels();
+        assertEquals(expectedMessage, actualMessage);
+        
+    }
+
+    
+
     
 
     
