@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.MatcherAssert.assertThat;
-
+import static org.hamcrest.Matchers.not;
 
 import java.util.List;
 import java.time.LocalDate;
@@ -50,6 +50,19 @@ public class GhostBusterModelTest {
         List<GhostModel> list = ghostBusterModel.getGhostTrap();
         ghostBusterModel.captureGhost(casper);
         assertThat(list, contains(casper));
-    }    
+    }
+
+    @Test
+    @DisplayName("Should delete ghost from the trap")
+    void testRemoveGhost() {
+        GhostBusterModel ghostBusterModel = new GhostBusterModel(null, null);
+        GhostModel casper = new GhostModel(1, "casper", enumGhostType.CLASE_I, enumDangerLevel.BAJO, "aparecerse y sonreir", LocalDate.now());
+        List<GhostModel> list = ghostBusterModel.getGhostTrap();
+        ghostBusterModel.captureGhost(casper);
+        ghostBusterModel.removeGhost(casper);
+        assertThat(list, not(contains(casper)));
+    }
+
+    
 
 }
