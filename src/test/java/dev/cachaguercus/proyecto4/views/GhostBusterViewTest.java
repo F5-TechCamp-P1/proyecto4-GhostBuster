@@ -43,4 +43,19 @@ public class GhostBusterViewTest {
 
         assertEquals(expectedMessage, actualMessage);
     }
+
+    @Test
+    @DisplayName("To initiate the ghost capture, should display a request to enter a ghost name")
+    void testDisplayCaptureGhost() {
+        GhostBusterView ghostBusterView = new GhostBusterView();
+        ghostBusterView.displayCaptureGhost();
+        String expectedMessage = "Capturar un Nuevo Fantasma\r\n" + 
+                        "============================================\r\n" + 
+                        "Ingresa el nombre del fantasma:";
+        String actualMessage = ghostBusterView.displayCaptureGhost();
+        assertEquals(expectedMessage, actualMessage);
+        
+    }
+
+    
 }
