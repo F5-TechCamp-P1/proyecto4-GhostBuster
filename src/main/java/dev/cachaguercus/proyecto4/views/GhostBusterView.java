@@ -33,19 +33,19 @@ public class GhostBusterView {
     }
 
     public String displayCaptureGhost() {
-        return "Capturar un Nuevo Fantasma\r\n" + 
-                "============================================\r\n" + 
-                "Ingresa el nombre del fantasma: "; 
+        return "Capturar un Nuevo Fantasma\r\n" +
+                "============================================\r\n" +
+                "Ingresa el nombre del fantasma: ";
     }
 
     public String displayGhostTypes(){
-        return "Selecciona la clase del fantasma:\r\n" + 
-                "1. Clase I - Manifestación menor\r\n" + 
-                "2. Clase II - Aparición móvil\r\n" + 
-                "3. Clase III - Entidad inteligente\r\n" + 
-                "4. Clase IV - Fantasma histórico\r\n" + 
-                "5. Clase V - Espíritu antropomorfo\r\n" + 
-                "6. Clase VI - Espíritu demoníaco\r\n" + 
+        return "Selecciona la clase del fantasma:\r\n" +
+                "1. Clase I - Manifestación menor\r\n" +
+                "2. Clase II - Aparición móvil\r\n" +
+                "3. Clase III - Entidad inteligente\r\n" +
+                "4. Clase IV - Fantasma histórico\r\n" +
+                "5. Clase V - Espíritu antropomorfo\r\n" +
+                "6. Clase VI - Espíritu demoníaco\r\n" +
                 "7. Clase VII - Entidad ultraterrena";
     }
 
@@ -79,10 +79,7 @@ public class GhostBusterView {
             tableline = MessageFormat.format("{0} {1} {2} {3} {4}", id, name, type, danger, capture_date);
             table.append("------------------------------------------------------------------------------------\r\n")
             .append(tableline);
-        
         }
-
-
         return table.toString();
     }
 

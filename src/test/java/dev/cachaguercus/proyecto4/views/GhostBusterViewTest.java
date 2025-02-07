@@ -141,11 +141,21 @@ public class GhostBusterViewTest {
             tableline = MessageFormat.format("{0} {1} {2} {3} {4}", id, name, type, danger, capture_date);
             expectedMessage.append("------------------------------------------------------------------------------------\r\n")
             .append(tableline);
-        
+
         }
         GhostBusterView ghostBusterView = new GhostBusterView();
         String actualMessage = ghostBusterView.displayGhostTrap();
         assertThat(actualMessage, equalTo(expectedMessage.toString()));
     }
+
+    @Test
+    @DisplayName("When the ghostbuster select option 3 from main menu, should display a request to enter the id of the ghost to release")
+    void testDisplayReleaseGhost() {
+        GhostBusterView ghostBusterView = new GhostBusterView();
+        String expectedMessage = "Ingresa el ID del fantasma que quieres liberar: ";
+        String actualMessage = ghostBusterView.displayReleaseGhost();
+        assertEquals(expectedMessage, actualMessage);
+    }
+
 
 }
