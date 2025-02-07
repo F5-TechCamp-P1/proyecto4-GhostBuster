@@ -2,7 +2,14 @@ package dev.cachaguercus.proyecto4.views;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import dev.cachaguercus.proyecto4.models.GhostModel;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.text.MessageFormat;
+import java.time.LocalDate;
+import java.text.MessageFormat;
 
 public class GhostBusterViewTest {
 
@@ -92,12 +99,17 @@ public class GhostBusterViewTest {
         assertEquals(expectedMessage, actualMessage);        
     }
 
-
-
+    @Test
+    @DisplayName("Should display a successful capture message")
+    void testDisplaySuccessfulCapture() {
+        GhostBusterView ghostBusterView = new GhostBusterView();
+        GhostModel ghostModel = new GhostModel(0, "ghost1", null, null, null, LocalDate.now());
+        String name = ghostModel.getName();
+        LocalDate capture_date = ghostModel.getCapture_date();
+        String expectedMessage = MessageFormat.format ("Fantasma {0} capturado exitosamente con nivel de afinidad ectoplásmica {1}.", name, capture_date);
+        String actualMessage = ghostBusterView.displaySuccessfulCapture();
+        assertEquals(expectedMessage, actualMessage);
+    }
     
 
-    
-    
-
-    
 }
