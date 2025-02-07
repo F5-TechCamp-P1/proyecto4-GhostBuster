@@ -1,5 +1,10 @@
 package dev.cachaguercus.proyecto4.views;
 
+import java.text.MessageFormat;
+import java.time.LocalDate;
+
+import dev.cachaguercus.proyecto4.models.GhostModel;
+
 public class GhostBusterView {
 
     public String displayWelcomeMessage() {
@@ -46,6 +51,10 @@ public class GhostBusterView {
 
     public String displaySpecialSkill(){
         return "Añade la habilidad especial del fantasma: ";
+    }
+
+    public String displaySuccessfulCapture(String name, LocalDate capture_date) {
+        return MessageFormat.format("Fantasma {0} capturado exitosamente con nivel de afinidad ectoplásmica {1}.", name, capture_date);
     }
 
 }

@@ -103,11 +103,13 @@ public class GhostBusterViewTest {
     @DisplayName("Should display a successful capture message")
     void testDisplaySuccessfulCapture() {
         GhostBusterView ghostBusterView = new GhostBusterView();
-        GhostModel ghostModel = new GhostModel(0, "ghost1", null, null, null, LocalDate.now());
+        GhostModel ghostModel = new GhostModel(0, null, null, null, null, null);
+        ghostModel.setName("Casper");
+        ghostModel.setCapture_date(LocalDate.now());
         String name = ghostModel.getName();
         LocalDate capture_date = ghostModel.getCapture_date();
         String expectedMessage = MessageFormat.format ("Fantasma {0} capturado exitosamente con nivel de afinidad ectoplásmica {1}.", name, capture_date);
-        String actualMessage = ghostBusterView.displaySuccessfulCapture();
+        String actualMessage = ghostBusterView.displaySuccessfulCapture(name, capture_date);
         assertEquals(expectedMessage, actualMessage);
     }
     
