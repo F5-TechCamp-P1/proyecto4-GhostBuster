@@ -57,5 +57,23 @@ public class GhostBusterViewTest {
         
     }
 
+    @Test
+    @DisplayName("Should ask to select a ghost type and show the options")
+    void testDisplayGhostTypes() {
+        GhostBusterView ghostBusterView = new GhostBusterView();
+        String expectedMessage = "Selecciona la clase del fantasma:\r\n" + 
+                        "1. Clase I - Manifestación menor\r\n" + 
+                        "2. Clase II - Aparición móvil\r\n" + 
+                        "3. Clase III - Entidad inteligente\r\n" + 
+                        "4. Clase IV - Fantasma histórico\r\n" + 
+                        "5. Clase V - Espíritu antropomorfo\r\n" + 
+                        "6. Clase VI - Espíritu demoníaco\r\n" + 
+                        "7. Clase VII - Entidad ultraterrena";
+        String actualMessage = ghostBusterView.displayGhostTypes();
+        assertEquals(expectedMessage, actualMessage);
+    }
+
+    
+
     
 }
