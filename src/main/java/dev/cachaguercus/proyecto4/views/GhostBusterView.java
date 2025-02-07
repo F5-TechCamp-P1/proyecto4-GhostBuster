@@ -91,4 +91,12 @@ public class GhostBusterView {
         return "Fantasma liberado con éxito";
     }
 
+    public String displayExitMessage(){
+        return "Salir del Programa\n" +
+                        "============================================\n" +
+                        "    ¡Gracias por proteger Asturias!\n" +
+                        "    ¡Nos vemos en la próxima cacería paranormal!\n" +
+                        "============================================";
+    }
+
 }
