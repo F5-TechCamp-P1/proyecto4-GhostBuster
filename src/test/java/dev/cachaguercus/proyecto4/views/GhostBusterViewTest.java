@@ -3,13 +3,18 @@ package dev.cachaguercus.proyecto4.views;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import dev.cachaguercus.proyecto4.enums.enumDangerLevel;
+import dev.cachaguercus.proyecto4.enums.enumGhostType;
+import dev.cachaguercus.proyecto4.models.GhostBusterModel;
 import dev.cachaguercus.proyecto4.models.GhostModel;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.text.MessageFormat;
 import java.time.LocalDate;
+import java.util.List;
 import java.text.MessageFormat;
+import java.lang.StringBuilder;
 
 public class GhostBusterViewTest {
 
@@ -20,11 +25,11 @@ public class GhostBusterViewTest {
         ghostBusterView.displayWelcomeMessage();
 
         String expectedMessage = "Inicio del Programa\n" +
-                        "============================================\n" +
-                        "    ¡Bienvenido a la Base Ghostbusters Asturias!\n" +
-                        "    Gestiona tus fantasmas atrapados y protege la región\n" +
-                        "============================================\n" +
-                        "Introduce tu nombre: ";
+                "============================================\n" +
+                "    ¡Bienvenido a la Base Ghostbusters Asturias!\n" +
+                "    Gestiona tus fantasmas atrapados y protege la región\n" +
+                "============================================\n" +
+                "Introduce tu nombre: ";
         String actualMessage = ghostBusterView.displayWelcomeMessage();
 
         assertEquals(expectedMessage, actualMessage);
@@ -37,14 +42,14 @@ public class GhostBusterViewTest {
         ghostBusterView.displayInitialMenu();
 
         String expectedMessage = "Opciones:\n" +
-                        "1. Capturar un nuevo fantasma\n" +
-                        "2. Ver lista de fantasmas capturados\n" +
-                        "3. Liberar un fantasma\n" +
-                        "4. Filtrar fantasmas por clase\n" +
-                        "5. Ver fantasmas capturados en un mes\n" +
-                        "6. Salir\n" +
-                        "\n" +
-                        "Por favor, selecciona una opción (1-6):" ;
+                "1. Capturar un nuevo fantasma\n" +
+                "2. Ver lista de fantasmas capturados\n" +
+                "3. Liberar un fantasma\n" +
+                "4. Filtrar fantasmas por clase\n" +
+                "5. Ver fantasmas capturados en un mes\n" +
+                "6. Salir\n" +
+                "\n" +
+                "Por favor, selecciona una opción (1-6):";
 
         String actualMessage = ghostBusterView.displayInitialMenu();
 
@@ -56,26 +61,26 @@ public class GhostBusterViewTest {
     void testDisplayCaptureGhost() {
         GhostBusterView ghostBusterView = new GhostBusterView();
         ghostBusterView.displayCaptureGhost();
-        String expectedMessage = "Capturar un Nuevo Fantasma\r\n" + 
-                        "============================================\r\n" + 
-                        "Ingresa el nombre del fantasma: ";
+        String expectedMessage = "Capturar un Nuevo Fantasma\r\n" +
+                "============================================\r\n" +
+                "Ingresa el nombre del fantasma: ";
         String actualMessage = ghostBusterView.displayCaptureGhost();
         assertEquals(expectedMessage, actualMessage);
-        
+
     }
 
     @Test
     @DisplayName("Should ask to select a ghost type and show the options")
     void testDisplayGhostTypes() {
         GhostBusterView ghostBusterView = new GhostBusterView();
-        String expectedMessage = "Selecciona la clase del fantasma:\r\n" + 
-                        "1. Clase I - Manifestación menor\r\n" + 
-                        "2. Clase II - Aparición móvil\r\n" + 
-                        "3. Clase III - Entidad inteligente\r\n" + 
-                        "4. Clase IV - Fantasma histórico\r\n" + 
-                        "5. Clase V - Espíritu antropomorfo\r\n" + 
-                        "6. Clase VI - Espíritu demoníaco\r\n" + 
-                        "7. Clase VII - Entidad ultraterrena";
+        String expectedMessage = "Selecciona la clase del fantasma:\r\n" +
+                "1. Clase I - Manifestación menor\r\n" +
+                "2. Clase II - Aparición móvil\r\n" +
+                "3. Clase III - Entidad inteligente\r\n" +
+                "4. Clase IV - Fantasma histórico\r\n" +
+                "5. Clase V - Espíritu antropomorfo\r\n" +
+                "6. Clase VI - Espíritu demoníaco\r\n" +
+                "7. Clase VII - Entidad ultraterrena";
         String actualMessage = ghostBusterView.displayGhostTypes();
         assertEquals(expectedMessage, actualMessage);
     }
@@ -87,7 +92,7 @@ public class GhostBusterViewTest {
         String expectedMessage = "Selecciona el nivel de peligro (Bajo, Medio, Alto, Crítico):";
         String actualMessage = ghostBusterView.displayDangerLevels();
         assertEquals(expectedMessage, actualMessage);
-        
+
     }
 
     @Test
@@ -96,7 +101,7 @@ public class GhostBusterViewTest {
         GhostBusterView ghostBusterView = new GhostBusterView();
         String expectedMessage = "Añade la habilidad especial del fantasma: ";
         String actualMessage = ghostBusterView.displaySpecialSkill();
-        assertEquals(expectedMessage, actualMessage);        
+        assertEquals(expectedMessage, actualMessage);
     }
 
     @Test
@@ -108,10 +113,37 @@ public class GhostBusterViewTest {
         ghostModel.setCapture_date(LocalDate.now());
         String name = ghostModel.getName();
         LocalDate capture_date = ghostModel.getCapture_date();
-        String expectedMessage = MessageFormat.format ("Fantasma {0} capturado exitosamente con nivel de afinidad ectoplásmica {1}.", name, capture_date);
+        String expectedMessage = MessageFormat.format(
+                "Fantasma {0} capturado exitosamente con nivel de afinidad ectoplásmica {1}.", name, capture_date);
         String actualMessage = ghostBusterView.displaySuccessfulCapture(name, capture_date);
         assertEquals(expectedMessage, actualMessage);
     }
-    
+
+    @Test
+    @DisplayName("Should display the list of captured ghosts")
+    void testDisplayGhostTrap() {
+        GhostBusterModel ghostBusterModel = new GhostBusterModel(null, null);
+        List<GhostModel> list = ghostBusterModel.getGhostTrap();
+        String tableline;
+        StringBuilder expectedMessage = new StringBuilder();
+        expectedMessage.append("Ver Lista de Fantasmas Capturados\r\n")
+                .append("============================================\r\n")
+                .append("ID    Nombre                           Clase       Nivel de Peligro   Fecha de Captura\r\n");
+        for (GhostModel ghost : list) {
+            int id = ghost.getId();
+            String name = ghost.getName();
+            enumGhostType type = ghost.getGhost_type();
+            enumDangerLevel danger = ghost.getDanger_level();
+            LocalDate capture_date = ghost.getCapture_date();
+
+            tableline = MessageFormat.format("{0} {1} {2} {3} {4}", id, name, type, danger, capture_date);
+            expectedMessage.append("------------------------------------------------------------------------------------\r\n")
+            .append(tableline);
+        
+        }
+        GhostBusterView ghostBusterView = new GhostBusterView();
+        StringBuilder actualMessage = ghostBusterView.displayGhostTrap();
+        assertEquals(expectedMessage, actualMessage);
+    }
 
 }
