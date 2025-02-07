@@ -29,4 +29,15 @@ public class GhostBusterView {
                 "Ingresa el nombre del fantasma: "; 
     }
 
+    public String displayGhostTypes(){
+        return "Selecciona la clase del fantasma:\r\n" + 
+                "1. Clase I - Manifestación menor\r\n" + 
+                "2. Clase II - Aparición móvil\r\n" + 
+                "3. Clase III - Entidad inteligente\r\n" + 
+                "4. Clase IV - Fantasma histórico\r\n" + 
+                "5. Clase V - Espíritu antropomorfo\r\n" + 
+                "6. Clase VI - Espíritu demoníaco\r\n" + 
+                "7. Clase VII - Entidad ultraterrena";
+    }
+
 }
