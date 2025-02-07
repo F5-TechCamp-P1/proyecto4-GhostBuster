@@ -44,4 +44,8 @@ public class GhostBusterView {
         return "Selecciona el nivel de peligro (Bajo, Medio, Alto, Crítico):";
     }
 
+    public String displaySpecialSkill(){
+        return "Añade la habilidad especial del fantasma: ";
+    }
+
 }
