@@ -24,4 +24,17 @@ public class GhostBusterModelTest {
         assertEquals(ghostTrap, ghostList);
     }
 
+    @Test
+    @DisplayName("Should set GhostBuster name and Ghost trap")
+    void testSetGhostBusterModel() {
+        GhostBusterModel ghostBuster = new GhostBusterModel();
+        ghostBuster.setName("Cachaguercu");
+        ghostBuster.setGhostTrap(new ArrayList<GhostModel>());
+        assertEquals(ghostBuster.getName(), "Cachaguercu");
+        assertEquals(ghostBuster.getGhostTrap(), new ArrayList<GhostModel>());
+        
+    }
+
+    
+
 }
