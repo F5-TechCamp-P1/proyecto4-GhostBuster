@@ -2,7 +2,11 @@ package dev.cachaguercus.proyecto4.views;
 
 import java.text.MessageFormat;
 import java.time.LocalDate;
+import java.util.List;
 
+import dev.cachaguercus.proyecto4.enums.enumDangerLevel;
+import dev.cachaguercus.proyecto4.enums.enumGhostType;
+import dev.cachaguercus.proyecto4.models.GhostBusterModel;
 import dev.cachaguercus.proyecto4.models.GhostModel;
 
 public class GhostBusterView {
@@ -55,6 +59,31 @@ public class GhostBusterView {
 
     public String displaySuccessfulCapture(String name, LocalDate capture_date) {
         return MessageFormat.format("Fantasma {0} capturado exitosamente con nivel de afinidad ectoplásmica {1}.", name, capture_date);
+    }
+
+    public String displayGhostTrap(){
+        GhostBusterModel ghostBusterModel = new GhostBusterModel(null, null);
+        List<GhostModel> list = ghostBusterModel.getGhostTrap();
+        String tableline;
+        StringBuilder table = new StringBuilder();
+        table.append("Ver Lista de Fantasmas Capturados\r\n")
+                .append("============================================\r\n")
+                .append("ID    Nombre                           Clase       Nivel de Peligro   Fecha de Captura\r\n");
+        for (GhostModel ghost : list) {
+            int id = ghost.getId();
+            String name = ghost.getName();
+            enumGhostType type = ghost.getGhost_type();
+            enumDangerLevel danger = ghost.getDanger_level();
+            LocalDate capture_date = ghost.getCapture_date();
+
+            tableline = MessageFormat.format("{0} {1} {2} {3} {4}", id, name, type, danger, capture_date);
+            table.append("------------------------------------------------------------------------------------\r\n")
+            .append(tableline);
+        
+        }
+
+
+        return table.toString();
     }
 
 }

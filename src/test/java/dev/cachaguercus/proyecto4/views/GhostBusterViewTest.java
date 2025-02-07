@@ -8,6 +8,8 @@ import dev.cachaguercus.proyecto4.enums.enumGhostType;
 import dev.cachaguercus.proyecto4.models.GhostBusterModel;
 import dev.cachaguercus.proyecto4.models.GhostModel;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.text.MessageFormat;
@@ -142,8 +144,8 @@ public class GhostBusterViewTest {
         
         }
         GhostBusterView ghostBusterView = new GhostBusterView();
-        StringBuilder actualMessage = ghostBusterView.displayGhostTrap();
-        assertEquals(expectedMessage, actualMessage);
+        String actualMessage = ghostBusterView.displayGhostTrap();
+        assertThat(actualMessage, equalTo(expectedMessage.toString()));
     }
 
 }
