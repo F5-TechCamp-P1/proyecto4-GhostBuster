@@ -11,4 +11,16 @@ public class GhostBusterView {
                 "Introduce tu nombre: ";
     }
 
+    public String displayInitialMenu() {
+        return "Opciones:\n" +
+                "1. Capturar un nuevo fantasma\n" +
+                "2. Ver lista de fantasmas capturados\n" +
+                "3. Liberar un fantasma\n" +
+                "4. Filtrar fantasmas por clase\n" +
+                "5. Ver fantasmas capturados en un mes\n" +
+                "6. Salir\n" +
+                "\n" +
+                "Por favor, selecciona una opción (1-6):";
+    }
+
 }
