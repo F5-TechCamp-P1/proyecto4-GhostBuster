@@ -83,4 +83,8 @@ public class GhostBusterView {
         return table.toString();
     }
 
+    public String displayReleaseGhost(){
+        return "Ingresa el ID del fantasma que quieres liberar: ";
+    }
+
 }
