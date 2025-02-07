@@ -27,7 +27,7 @@ public class GhostBusterModelTest {
     @Test
     @DisplayName("Should set GhostBuster name and Ghost trap")
     void testSetGhostBusterModel() {
-        GhostBusterModel ghostBuster = new GhostBusterModel();
+        GhostBusterModel ghostBuster = new GhostBusterModel(null, null);
         ghostBuster.setName("Cachaguercu");
         ghostBuster.setGhostTrap(new ArrayList<GhostModel>());
         assertEquals(ghostBuster.getName(), "Cachaguercu");

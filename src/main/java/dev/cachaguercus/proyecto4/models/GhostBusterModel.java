@@ -19,9 +19,12 @@ public class GhostBusterModel {
     public List<GhostModel> getGhostTrap() {
         return ghostTrap;
     }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setGhostTrap(List<GhostModel> ghostTrap) {
+        this.ghostTrap = ghostTrap;
+    }
 
-
-
-
-
+    
 }
