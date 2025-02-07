@@ -2,6 +2,7 @@ package dev.cachaguercus.proyecto4.views;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GhostBusterViewTest {
 
@@ -17,7 +18,7 @@ public class GhostBusterViewTest {
                         "    Gestiona tus fantasmas atrapados y protege la región\n" +
                         "============================================\n" +
                         "Introduce tu nombre: ";
-        String actualMessage = ghostBusterView.getWelcomeMessage();
+        String actualMessage = ghostBusterView.displayWelcomeMessage();
 
         assertEquals(expectedMessage, actualMessage);
     }
