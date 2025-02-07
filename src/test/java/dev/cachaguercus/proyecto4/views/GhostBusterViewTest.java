@@ -22,4 +22,25 @@ public class GhostBusterViewTest {
 
         assertEquals(expectedMessage, actualMessage);
     }
+
+    @Test
+    @DisplayName("Should display the initial menu ask the user to select an option")
+    void testDisplayInitialMenu() {
+        GhostBusterView ghostBusterView = new GhostBusterView();
+        ghostBusterView.displayInitialMenu();
+
+        String expectedMessage = "Opciones:\n" +
+                        "1. Capturar un nuevo fantasma\n" +
+                        "2. Ver lista de fantasmas capturados\n" +
+                        "3. Liberar un fantasma\n" +
+                        "4. Filtrar fantasmas por clase\n" +
+                        "5. Ver fantasmas capturados en un mes\n" +
+                        "6. Salir\n" +
+                        "\n" +
+                        "Por favor, selecciona una opción (1-6):" ;
+
+        String actualMessage = ghostBusterView.displayInitialMenu();
+
+        assertEquals(expectedMessage, actualMessage);
+    }
 }
