@@ -4,6 +4,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 
 import java.util.List;
 import java.util.ArrayList;
@@ -35,6 +38,13 @@ public class GhostBusterModelTest {
         
     }
 
-    
+    @Test
+    @DisplayName("Should add a new ghost to the trap")
+    void testCaptureGhost() {
+        GhostBusterModel ghostBusterModel = new GhostBusterModel(null, null);
+        List<GhostModel> list = ghostBusterModel.getGhostTrap();
+        ghostBusterModel.captureGhost();
+        assertThat(list, contains(ghostBusterModel.getGhostModel()));
+    }    
 
 }
