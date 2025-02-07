@@ -165,4 +165,17 @@ public class GhostBusterViewTest {
         String actualMessage = ghostBusterView.displaySuccessfulRelease();
         assertEquals(expectedMessage, actualMessage);
     }
+
+    @Test
+    @DisplayName("When the ghostbuster select option 4 from main menu, should display a farewell confirmation message")
+    void testDisplayExitMessage() {
+        GhostBusterView ghostBusterView = new GhostBusterView();
+        String expectedMessage = "Salir del Programa\n" +
+                        "============================================\n" +
+                        "    ¡Gracias por proteger Asturias!\n" +
+                        "    ¡Nos vemos en la próxima cacería paranormal!\n" +
+                        "============================================";
+        String actualMessage = ghostBusterView.displayExitMessage();
+        assertEquals(expectedMessage, actualMessage);
+    }
 }
