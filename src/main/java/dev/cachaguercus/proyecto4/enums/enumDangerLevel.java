@@ -9,8 +9,8 @@ public enum enumDangerLevel {
 
     private final int numericLevel;
 
-    enumDangerLevel(int nivelNumerico) {
-        this.numericLevel = nivelNumerico;
+    enumDangerLevel(int numericLevel) {
+        this.numericLevel = numericLevel;
     }
 
     public int getNumericLevel() {
