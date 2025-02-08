@@ -1,27 +1,24 @@
 package dev.cachaguercus.proyecto4.controllers;
 
-import java.util.Scanner;
+import java.time.LocalDate;
 
+import dev.cachaguercus.proyecto4.enums.enumDangerLevel;
+import dev.cachaguercus.proyecto4.enums.enumGhostType;
+import dev.cachaguercus.proyecto4.models.GhostBusterModel;
+import dev.cachaguercus.proyecto4.models.GhostModel;
 import dev.cachaguercus.proyecto4.views.GhostBusterView;
 
 public class GhostBusterController {
-    private Scanner scanner = new Scanner(System.in);
-    private GhostBusterView ghostBusterView = new GhostBusterView();
-    Scanner gbInputScanner = new Scanner(System.in);
-    String selectedoption = scanner.nextLine();
+    private GhostBusterModel model;
+    private GhostBusterView view;
 
-    public String captureGhost(String selectedoption) {
-        if (selectedoption.equals("1")) {
-            System.out.println(ghostBusterView.displayCaptureGhost());
-            return "método ok";
-        } else {
-            System.out.println("Opción no valida");
-            return "método no ok";
-        }
+    public GhostBusterController(GhostBusterModel model, GhostBusterView view) {
+        this.model = model;
+        this.view = view;
     }
 
-    public void closeScanners() {
-        scanner.close();
-        gbInputScanner.close();
+    public void captureGhost(int id, String name, enumGhostType ghostType, enumDangerLevel dangerLevel, String specialSkill, LocalDate captureDate) {
+        GhostModel ghost = new GhostModel(id, name, ghostType, dangerLevel, specialSkill, captureDate);
+        model.captureGhost(ghost);
     }
 }

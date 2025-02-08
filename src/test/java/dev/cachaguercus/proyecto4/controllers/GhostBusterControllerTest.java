@@ -3,20 +3,39 @@ package dev.cachaguercus.proyecto4.controllers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import dev.cachaguercus.proyecto4.enums.enumDangerLevel;
+import dev.cachaguercus.proyecto4.enums.enumGhostType;
+import dev.cachaguercus.proyecto4.models.GhostBusterModel;
+import dev.cachaguercus.proyecto4.views.GhostBusterView;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import org.mockito.Mockito;
+import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
+
+import java.time.LocalDate;
 
 
 public class GhostBusterControllerTest {
 
     @Test
-    @DisplayName("When the ghostbuster select option 1 from main menu, should display a request to enter the name of the ghost")
-    void testCaptureGhost(){
-        GhostBusterController ghostBusterController = new GhostBusterController();
-        String selectedoption = "1";
-        String message = ghostBusterController.captureGhost(selectedoption);
-        assertThat(message, is("método ok"));
-        ghostBusterController.closeScanners();
+    @DisplayName("When captureGhost is called, should call model.captureGhost with the correct parameters")
+    void testCaptureGhost() {
+        GhostBusterModel model = Mockito.mock(GhostBusterModel.class);
+        GhostBusterView view = Mockito.mock(GhostBusterView.class);
+        GhostBusterController controller = new GhostBusterController(model, view);
+
+        when(view.displayCaptureGhost()).thenReturn("Casper");
+        when(view.displayGhostTypes()).thenReturn("CLASE_I");
+        when(view.displayDangerLevels()).thenReturn("BAJO");
+        when(view.displaySpecialSkill()).thenReturn("aparecerse y sonreir");
+        when(view.displaySuccessfulCapture("Casper", LocalDate.now())).thenReturn("Ghost Captured");
+        controller.captureGhost(0, "Casper", enumGhostType.CLASE_I, enumDangerLevel.BAJO, "aparecerse y sonreir", LocalDate.now());
+        verify(model, times(1)).captureGhost(argThat(ghost ->
+            ghost.getName().equals("Casper") &&
+            ghost.getGhost_type().equals(enumGhostType.CLASE_I) &&
+            ghost.getDanger_level().equals(enumDangerLevel.BAJO) &&
+            ghost.getSpecial_skill().equals("aparecerse y sonreir") &&
+            ghost.getCapture_date().equals(LocalDate.now())
+        ));
     }
 }
