@@ -84,7 +84,7 @@ public class GhostBusterView {
     }
 
     public String displayReleaseGhost(){
-        return "Ingresa el ID del fantasma que quieres liberar: ";
+        return "Ingresa el nombre del fantasma que quieres liberar: ";
     }
 
     public String displaySuccessfulRelease(){

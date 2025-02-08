@@ -152,7 +152,7 @@ public class GhostBusterViewTest {
     @DisplayName("When the ghostbuster select option 3 from main menu, should display a request to enter the id of the ghost to release")
     void testDisplayReleaseGhost() {
         GhostBusterView ghostBusterView = new GhostBusterView();
-        String expectedMessage = "Ingresa el ID del fantasma que quieres liberar: ";
+        String expectedMessage = "Ingresa el nombre del fantasma que quieres liberar: ";
         String actualMessage = ghostBusterView.displayReleaseGhost();
         assertEquals(expectedMessage, actualMessage);
     }
