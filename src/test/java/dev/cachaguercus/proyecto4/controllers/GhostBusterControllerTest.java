@@ -37,6 +37,17 @@ public class GhostBusterControllerTest {
     }
 
     @Test
+    @DisplayName("Should ask GhostBusterView to displayInitialMenu")
+    void testSelectOptionMainMenu() {
+        GhostBusterView view = Mockito.mock(GhostBusterView.class);
+        GhostBusterController controller = new GhostBusterController(null, view);
+        controller.selectOptionMainMenu();
+        verify(view, times(1)).displayInitialMenu();
+    }
+
+
+
+    @Test
     @DisplayName("When captureGhost is called, should call model.captureGhost with the correct parameters")
     void testCaptureGhost() {
         GhostBusterModel model = Mockito.mock(GhostBusterModel.class);
