@@ -22,6 +22,10 @@ public class GhostBusterController {
         model.setName(ghostBurtername);
     }
 
+    public void selectOptionMainMenu() {
+        view.displayInitialMenu();
+    }
+
     public void captureGhost(int id, String name, enumGhostType ghostType, enumDangerLevel dangerLevel, String specialSkill, LocalDate captureDate) {
         GhostModel ghost = new GhostModel(id, name, ghostType, dangerLevel, specialSkill, captureDate);
         model.captureGhost(ghost);
