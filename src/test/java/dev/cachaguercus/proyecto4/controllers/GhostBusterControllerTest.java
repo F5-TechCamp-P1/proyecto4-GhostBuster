@@ -17,6 +17,25 @@ import java.time.LocalDate;
 
 public class GhostBusterControllerTest {
 
+    
+
+    @Test
+    @DisplayName("Should ask GhostBusterView to displayWelcomeMessage")
+    void testRun() {
+        GhostBusterModel model = Mockito.mock(GhostBusterModel.class);
+        GhostBusterView view = Mockito.mock(GhostBusterView.class);
+        GhostBusterController controller = new GhostBusterController(model, view);
+
+        String ghostBusterName = "Cachaguercu";
+
+        when(view.displayWelcomeMessage()).thenReturn("Cachaguercu");
+        
+        controller.run();
+
+        verify(view, times(1)).displayWelcomeMessage();
+        verify(model, times(1)).setName(ghostBusterName);
+    }
+
     @Test
     @DisplayName("When captureGhost is called, should call model.captureGhost with the correct parameters")
     void testCaptureGhost() {
