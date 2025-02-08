@@ -24,5 +24,4 @@ public class GhostBusterControllerTest {
         String actualMessage = ghostBusterView.displayCaptureGhost();
         assertEquals(expectedMessage, actualMessage);
     }
-
 }
