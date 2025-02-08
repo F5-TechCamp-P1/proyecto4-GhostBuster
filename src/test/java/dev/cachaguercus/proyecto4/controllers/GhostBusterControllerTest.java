@@ -35,7 +35,6 @@ public class GhostBusterControllerTest {
         verify(view, times(1)).displayWelcomeMessage();
         verify(model, times(1)).setName(ghostBusterName);
     }
-
     @Test
     @DisplayName("Should ask GhostBusterView to displayInitialMenu")
     void testSelectOptionMainMenu() {
@@ -44,9 +43,6 @@ public class GhostBusterControllerTest {
         controller.selectOptionMainMenu();
         verify(view, times(1)).displayInitialMenu();
     }
-
-
-
     @Test
     @DisplayName("When captureGhost is called, should call model.captureGhost with the correct parameters")
     void testCaptureGhost() {
@@ -68,4 +64,20 @@ public class GhostBusterControllerTest {
             ghost.getCapture_date().equals(LocalDate.now())
         ));
     }
+    
+    @Test
+    @DisplayName("Should pass a name to model so that it removes the ghost by removeGhost")
+    void testRemoveGhost() {
+        GhostBusterModel model = Mockito.mock(GhostBusterModel.class);
+        GhostBusterView view = Mockito.mock(GhostBusterView.class);
+        GhostBusterController controller = new GhostBusterController(model, view);
+
+        when(view.displayReleaseGhost()).thenReturn("Casper");
+        controller.removeGhost(null, "Casper", null, null, null, null);
+        verify(model, times(1)).removeGhost(argThat(ghost ->
+            ghost.getName().equals("Casper") )
+        );
+       
+    }
+
 }

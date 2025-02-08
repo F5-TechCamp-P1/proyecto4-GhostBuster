@@ -30,4 +30,6 @@ public class GhostBusterController {
         GhostModel ghost = new GhostModel(id, name, ghostType, dangerLevel, specialSkill, captureDate);
         model.captureGhost(ghost);
     }
+
+    
 }
