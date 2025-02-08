@@ -30,7 +30,7 @@ public class GhostBusterControllerTest {
 
         when(view.displayWelcomeMessage()).thenReturn("Cachaguercu");
         
-        controller.run();
+        controller.run(ghostBusterName);
 
         verify(view, times(1)).displayWelcomeMessage();
         verify(model, times(1)).setName(ghostBusterName);

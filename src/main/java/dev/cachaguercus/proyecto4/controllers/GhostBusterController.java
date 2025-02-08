@@ -17,6 +17,11 @@ public class GhostBusterController {
         this.view = view;
     }
 
+    public void run(String ghostBurtername){
+        view.displayWelcomeMessage();
+        model.setName(ghostBurtername);
+    }
+
     public void captureGhost(int id, String name, enumGhostType ghostType, enumDangerLevel dangerLevel, String specialSkill, LocalDate captureDate) {
         GhostModel ghost = new GhostModel(id, name, ghostType, dangerLevel, specialSkill, captureDate);
         model.captureGhost(ghost);
