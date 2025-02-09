@@ -40,4 +40,8 @@ public class GhostBusterController {
             }
         }
     }
+
+    public void listGhosts() {
+        view.displayGhostTrap();
+    }
 }
