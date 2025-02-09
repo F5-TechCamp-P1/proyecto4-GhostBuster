@@ -6,11 +6,16 @@ import org.junit.jupiter.api.Test;
 import dev.cachaguercus.proyecto4.enums.enumDangerLevel;
 import dev.cachaguercus.proyecto4.enums.enumGhostType;
 import dev.cachaguercus.proyecto4.models.GhostBusterModel;
+import dev.cachaguercus.proyecto4.models.GhostModel;
 import dev.cachaguercus.proyecto4.views.GhostBusterView;
 
 import org.mockito.Mockito;
+
+import static org.mockito.ArgumentMatchers.argThat;
 import static org.mockito.Mockito.*;
-import static org.mockito.Mockito.when;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.not;
 
 import java.time.LocalDate;
 
@@ -71,13 +76,10 @@ public class GhostBusterControllerTest {
         GhostBusterModel model = Mockito.mock(GhostBusterModel.class);
         GhostBusterView view = Mockito.mock(GhostBusterView.class);
         GhostBusterController controller = new GhostBusterController(model, view);
-
+        GhostModel ghost = new GhostModel(0, "Casper", enumGhostType.CLASE_I, enumDangerLevel.BAJO, "aparecerse y sonreir", LocalDate.now());
+        model.captureGhost(ghost);
         when(view.displayReleaseGhost()).thenReturn("Casper");
-        controller.removeGhost(null, "Casper", null, null, null, null);
-        verify(model, times(1)).removeGhost(argThat(ghost ->
-            ghost.getName().equals("Casper") )
-        );
-       
+        controller.removeGhost("Casper");
+        assertThat(model.getGhostTrap(), not(hasItem(ghost)));
     }
-
 }

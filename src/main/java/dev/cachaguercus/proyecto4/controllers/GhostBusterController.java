@@ -31,5 +31,13 @@ public class GhostBusterController {
         model.captureGhost(ghost);
     }
 
-    
+    public void removeGhost(String name) {
+        for (GhostModel ghost : model.getGhostTrap()) {
+            if (ghost.getName().equals(name)) {
+                model.removeGhost(ghost);
+                view.displaySuccessfulRelease();
+                return;
+            }
+        }
+    }
 }
