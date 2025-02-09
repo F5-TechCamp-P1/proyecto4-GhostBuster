@@ -95,6 +95,16 @@ public class GhostBusterControllerTest {
         controller.listGhosts(); 
         verify(view, times(1)).displayGhostTrap();      
     }
+    @Test
+    @DisplayName("Should display exit message")
+    void testExitGame() {
+        GhostBusterView view = Mockito.mock(GhostBusterView.class);
+        GhostBusterController controller = new GhostBusterController(null, view);
+        controller.exitGame();
+        verify(view, times(1)).displayExitMessage();
+    }
+
+    
 
     
 }
