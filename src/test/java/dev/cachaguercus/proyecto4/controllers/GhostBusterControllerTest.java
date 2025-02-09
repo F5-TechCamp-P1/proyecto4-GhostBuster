@@ -82,4 +82,17 @@ public class GhostBusterControllerTest {
         controller.removeGhost("Casper");
         assertThat(model.getGhostTrap(), not(hasItem(ghost)));
     }
+    @Test
+    @DisplayName("Should display the list of captured ghosts")
+    void testListGhosts() {
+        GhostBusterModel model = Mockito.mock(GhostBusterModel.class);
+        GhostBusterView view = Mockito.mock(GhostBusterView.class);
+        GhostBusterController controller = new GhostBusterController(model, view);
+        GhostModel ghost = new GhostModel(0, "Casper", enumGhostType.CLASE_I, enumDangerLevel.BAJO, "aparecerse y sonreir", LocalDate.now());
+        model.captureGhost(ghost);
+        controller.listGhosts(); 
+        verify(view, times(1)).displayGhostTrap();      
+    }
+
+    
 }
