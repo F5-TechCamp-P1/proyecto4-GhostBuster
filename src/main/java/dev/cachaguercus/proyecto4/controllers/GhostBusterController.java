@@ -17,7 +17,7 @@ public class GhostBusterController {
         this.view = view;
     }
 
-    public void run(String ghostBurtername){
+    public void run(String ghostBurtername) {
         view.displayWelcomeMessage();
         model.setName(ghostBurtername);
     }
@@ -26,7 +26,8 @@ public class GhostBusterController {
         view.displayInitialMenu();
     }
 
-    public void captureGhost(int id, String name, enumGhostType ghostType, enumDangerLevel dangerLevel, String specialSkill, LocalDate captureDate) {
+    public void captureGhost(int id, String name, enumGhostType ghostType, enumDangerLevel dangerLevel,
+            String specialSkill, LocalDate captureDate) {
         GhostModel ghost = new GhostModel(id, name, ghostType, dangerLevel, specialSkill, captureDate);
         model.captureGhost(ghost);
         view.displaySuccessfulCapture(name, captureDate);
@@ -44,5 +45,9 @@ public class GhostBusterController {
 
     public void listGhosts() {
         view.displayGhostTrap();
+    }
+
+    public void exitGame() {
+        view.displayExitMessage();
     }
 }
