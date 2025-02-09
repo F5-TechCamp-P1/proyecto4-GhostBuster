@@ -29,6 +29,7 @@ public class GhostBusterController {
     public void captureGhost(int id, String name, enumGhostType ghostType, enumDangerLevel dangerLevel, String specialSkill, LocalDate captureDate) {
         GhostModel ghost = new GhostModel(id, name, ghostType, dangerLevel, specialSkill, captureDate);
         model.captureGhost(ghost);
+        view.displaySuccessfulCapture(name, captureDate);
     }
 
     public void removeGhost(String name) {

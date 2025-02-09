@@ -67,7 +67,9 @@ public class GhostBusterControllerTest {
             ghost.getDanger_level().equals(enumDangerLevel.BAJO) &&
             ghost.getSpecial_skill().equals("aparecerse y sonreir") &&
             ghost.getCapture_date().equals(LocalDate.now())
-        ));
+            ));
+        verify(view, times(1)).displaySuccessfulCapture("Casper", LocalDate.now());
+       
     }
     
     @Test
