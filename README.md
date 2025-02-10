@@ -1,4 +1,9 @@
-# Project Title
+# Cachagüercus Asturias
+
+**Tremecéi pantasmes d'Asturies, yá tán aquí les cachagüercus!!**
+
+![image](https://github.com/user-attachments/assets/d0bfd5ab-d62a-4cec-a03e-09e3a630b5a6)
+
 
 ## Table of Contents
 
@@ -7,86 +12,90 @@
 - Getting Started
   - Prerequisites
   - Installation
-- Tests
-- Build
 - Usage
+- Testing
+- Build
 - Feedback and Contributions
 - Contact
 
 ## Description
 
-A more detailed explanation of what your project does.  What problem does it solve? What are its key features?  Be specific and avoid jargon if possible.  Include a sentence or two summarizing the project for quick understanding.
+**Cachagüercus Asturias** is an interactive application where the player become a Ghost-buster dedicated to protecting the Asturias region from a surge of paranormal activities. Armed with state-of-the-art proton traps and innovative ectoplasmic detectors, your mission is to investigate phenomena in iconic locations across Asturias, capture ghosts, and maintain peace.
 
 ## Features
 
-- A list with all the features from your project.
-- **Feature Name**: What this feature do.
+- **Capture Ghosts:** Expand your collection and protect emblematic places in Asturias.
+- **View Captured Ghosts:** Analyze characteristics and plan strategies.
+- **Release Ghosts:** Free less dangerous or harmless ghosts to make space in your ectoplasmic container.
+
+[Diagram Class](https://drive.google.com/file/d/1mReOgbssg9_G_iuwmYqWHQtXPykidM-A/view?usp=sharing)
 
 ## Getting Started
 
 ### Prerequisites
 
-- Java Development Kit (JDK) 21
-- Maven (for build management)
-- JUnit (for testing)
-- Git (for version control)
+- **Java Development Kit (JDK) 21**
+- **Maven** (for build management)
+- **JUnit** (for testing)
+- **Mockito** (for testing)
+- **Git** (for version control)
 
 ### Installation
 
-1. Clone the repository:
-```Bash
-git clone [https://github.com/your-username/your-repo.git](https://github.com/your-username/your-repo.git)
-```
-2. Change to your project directory:
-```bash
-cd your-repo
-```
-4. Run a clean Maven installation:
-```Bash
-mvn clean install
-```
+1. **Clone the repository:**
 
-## Tests
+   ```
+   git clone https://github.com/F5-TechCamp-P1/proyecto4-ghostbuster.git
+   ```
 
-Describe how to run the project's tests.  Specify the testing framework used (e.g., JUnit, TestNG) and provide commands for running the tests.
+2. **Navigate to the project directory:**
 
-**Example (using Maven and JUnit):**
+   ```
+   cd proyecto4-ghostbuster
+   ```
 
-```Bash
-mvn test
-```
-## Build
+3. **Install dependencies:**
 
-Explain how to build the project.  Specify the build tool used (e.g., Maven, Gradle) and provide the necessary commands.
-
-**Example (using Maven):**
-
-```Bash
-mvn clean package
-```
+   ```
+   mvn install
+   ```
 
 ## Usage
 
-Provide examples of how to use your project.  Include code snippets, screenshots, or GIFs if helpful.  Explain the different options and parameters available.
+To run the application, execute:
 
-**Example (Java code snippet):**
-
-```Java
-
-// Example usage of the main function
-MyClass myObject = new MyClass();
-myObject.doSomething("important argument");
-int result = myObject.calculateValue(10, 20);
-System.out.println("Result: " + result);
 ```
-## Feedback and Contributions:
+mvn exec:java -Dexec.mainClass="dev.cachaguercus.proyecto4"
+```
 
-Feedback is welcome! Feel free to open issues or submit pull requests to suggest improvements or report any bugs.
+## Testing
 
-## Contact:
+Testing is conducted using Test-Driven Development (TDD) with a minimum coverage of 70%. To run tests:
 
-I'm **Mabel Rincon** you can contact me via  [![Linkedin](https://i.sstatic.net/gVE0j.png) LinkedIn](https://www.linkedin.com/in/mabel-rincon/)
-&nbsp;
-Check out other repositories at
-&nbsp;
-[![GitHub](https://i.sstatic.net/tskMh.png) GitHub](https://github.com/MabelRincon)
+```
+mvn test
+```
+
+For a coverage report:
+
+```
+mvn jacoco:report
+```
+
+## Build
+
+To build the project, use:
+
+```
+mvn clean package
+```
+
+The packaged application will be located in the `target` directory.
+
+## Feedback and Contributions
+
+We welcome feedback and contributions! Please open an issue or submit a pull request on GitHub. Ensure that your contributions align with the project's guidelines and standards.
+
+## Contact
+
+For any inquiries or support, please contact the project maintainers through the GitHub repository's issue tracker.
