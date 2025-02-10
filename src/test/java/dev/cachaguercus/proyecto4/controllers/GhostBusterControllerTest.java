@@ -2,8 +2,6 @@ package dev.cachaguercus.proyecto4.controllers;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-/* import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.AfterEach; */
 
 import dev.cachaguercus.proyecto4.enums.enumDangerLevel;
 import dev.cachaguercus.proyecto4.enums.enumGhostType;
@@ -24,31 +22,12 @@ import java.time.LocalDate;
 
 public class GhostBusterControllerTest {
 
-   /*  private GhostBusterView view;
-    private GhostBusterModel model;
-    private GhostBusterController controller;
-    private InputStream originalSystemIn; */
-/*
-    @BeforeEach
-    void setUp() {
-        GhostBusterView view = Mockito.mock(GhostBusterView.class);
-        GhostBusterModel model = new GhostBusterModel();
-        GhostBusterController controller = new GhostBusterController(model, view);
-        originalSystemIn = System.in;
-    }
-
-    @AfterEach
-    void restoreSystemIn() {
-        System.setIn(originalSystemIn);
-    } */
-
     @Test
     @DisplayName("Should ask GhostBusterView to displayWelcomeMessage")
     void testRun() {
         GhostBusterView view = Mockito.mock(GhostBusterView.class);
         GhostBusterModel model = new GhostBusterModel();
         String input = "X\n4\n";
-       // System.setIn(new ByteArrayInputStream(input.getBytes()));
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         GhostBusterController controller = new GhostBusterController(model, view);
@@ -63,7 +42,6 @@ public class GhostBusterControllerTest {
         GhostBusterView view = Mockito.mock(GhostBusterView.class);
         GhostBusterModel model = new GhostBusterModel();
         String input = "4\n";
-        //System.setIn(new ByteArrayInputStream(input.getBytes()));
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         GhostBusterController controller = new GhostBusterController(model, view);
@@ -78,7 +56,6 @@ public class GhostBusterControllerTest {
         GhostBusterView view = new GhostBusterView();
         GhostBusterModel model = Mockito.mock(GhostBusterModel.class);
         String input = "Cachaguercu\n4\n";
-        // System.setIn(new ByteArrayInputStream(input.getBytes()));
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         GhostBusterController controller = new GhostBusterController(model, view);
