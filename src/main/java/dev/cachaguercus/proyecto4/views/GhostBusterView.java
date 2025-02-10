@@ -12,63 +12,102 @@ import dev.cachaguercus.proyecto4.models.GhostModel;
 public class GhostBusterView {
 
     public String displayWelcomeMessage() {
-        return "Inicio del Programa\n" +
-                "============================================\n" +
+        String message = "\n" +
+                "============================================================\n" +
                 "    ¡Bienvenido a la Base Ghostbusters Asturias!\n" +
                 "    Gestiona tus fantasmas atrapados y protege la región\n" +
-                "============================================\n" +
+                "============================================================\n" +
+                "\n" +
                 "Introduce tu nombre: ";
+        System.out.println(message);
+        return message;
     }
 
     public String displayInitialMenu() {
-        return "Opciones:\n" +
+        String message = "\n" +
+                "============================================\r\n" +
+                "OPCIONES:\n" +
+                "============================================\r\n" +
                 "1. Capturar un nuevo fantasma\n" +
                 "2. Ver lista de fantasmas capturados\n" +
                 "3. Liberar un fantasma\n" +
-                "4. Filtrar fantasmas por clase\n" +
-                "5. Ver fantasmas capturados en un mes\n" +
-                "6. Salir\n" +
+                "4. Salir\n" +
+                "============================================\r\n" +
                 "\n" +
-                "Por favor, selecciona una opción (1-6):";
+                "Por favor, selecciona una opción (1-4):";
+        System.out.println(message);
+        return message;
     }
 
     public String displayCaptureGhost() {
-        return "Capturar un Nuevo Fantasma\r\n" +
+        String message = "\r\n" +
                 "============================================\r\n" +
+                "CAPTURAR UN NUEVO FANTASMA\r\n" +
+                "============================================\r\n" +
+                "\n" +
                 "Ingresa el nombre del fantasma: ";
+        System.out.println(message);
+        return message;
     }
 
     public String displayGhostTypes(){
-        return "Selecciona la clase del fantasma:\r\n" +
+        String message ="\r\n" +
+                "============================================\r\n" +
+                "SELECCIONA LA CLASE DEL FANTASMA:\r\n" +
+                "============================================\r\n" +
                 "1. Clase I - Manifestación menor\r\n" +
                 "2. Clase II - Aparición móvil\r\n" +
                 "3. Clase III - Entidad inteligente\r\n" +
                 "4. Clase IV - Fantasma histórico\r\n" +
                 "5. Clase V - Espíritu antropomorfo\r\n" +
                 "6. Clase VI - Espíritu demoníaco\r\n" +
-                "7. Clase VII - Entidad ultraterrena";
+                "7. Clase VII - Entidad ultraterrena\r\n" +
+                "============================================\r\n" +
+                "\n";
+        System.out.println(message);
+        return message;
     }
 
     public String displayDangerLevels(){
-        return "Selecciona el nivel de peligro (Bajo, Medio, Alto, Crítico):";
+        String message = "\r\n" +
+            "============================================\r\n" +
+            "SELECCIONA EL NIVEL DE PELIGRO:\r\n" +
+            "============================================\r\n" +
+            "1. Bajo\r\n" +
+            "2. Medio\r\n" +
+            "3. Alto\r\n" +
+            "4. Crítico\r\n" +
+            "============================================\r\n" +
+            "\n";
+        System.out.println(message);
+        return message;
     }
 
     public String displaySpecialSkill(){
-        return "Añade la habilidad especial del fantasma: ";
+        String message = "\r\n" +
+            "============================================\r\n" +
+            "HABILIDAD ESPECIAL DEL FANTASMA:\r\n" +
+            "============================================\r\n" +
+            "\n" +
+            "Añade una habilidad especial: ";
+        System.out.println(message);
+        return message;
     }
 
     public String displaySuccessfulCapture(String name, LocalDate capture_date) {
-        return MessageFormat.format("Fantasma {0} capturado exitosamente con nivel de afinidad ectoplásmica {1}.", name, capture_date);
+        String message = MessageFormat.format("\r\nFantasma {0} capturado exitosamente con buen nivel de afinidad ectoplásmica {1}.", name, capture_date);
+        System.out.println(message);
+        return message;
     }
 
     public String displayGhostTrap(){
-        GhostBusterModel ghostBusterModel = new GhostBusterModel(null, null);
-        List<GhostModel> list = ghostBusterModel.getGhostTrap();
+        List<GhostModel> list = GhostBusterModel.getGhostTrap();
         String tableline;
         StringBuilder table = new StringBuilder();
-        table.append("Ver Lista de Fantasmas Capturados\r\n")
-                .append("============================================\r\n")
-                .append("ID    Nombre                           Clase       Nivel de Peligro   Fecha de Captura\r\n");
+        table.append("\r\n")
+                .append("==================================================================\r\n")
+                .append("ID Nombre      Clase     Nivel de Peligro  Fecha de Captura\r\n")
+                .append("==================================================================\r\n");
         for (GhostModel ghost : list) {
             int id = ghost.getId();
             String name = ghost.getName();
@@ -77,26 +116,43 @@ public class GhostBusterView {
             LocalDate capture_date = ghost.getCapture_date();
 
             tableline = MessageFormat.format("{0} {1} {2} {3} {4}", id, name, type, danger, capture_date);
-            table.append("------------------------------------------------------------------------------------\r\n")
+            table.append("\r\n")
             .append(tableline);
         }
-        return table.toString();
+        String message = table.toString();
+        System.out.println(message);
+        return message;
     }
 
     public String displayReleaseGhost(){
-        return "Ingresa el nombre del fantasma que quieres liberar: ";
+        String message = "\r\n" +
+            "============================================\r\n" +
+            "LIBERA UN FANTASMA\r\n" +
+            "============================================\r\n" +
+            "\n" +
+            "Ingresa el nombre del fantasma que quieres liberar: ";
+        System.out.println(message);
+        return message;
     }
 
     public String displaySuccessfulRelease(){
-        return "Fantasma liberado con éxito";
+        String message = "\r\n" +
+            "============================================\r\n" +
+            "Fantasma liberado con éxito\r\n" +
+            "============================================\r\n";
+        System.out.println(message);
+        return message;
     }
 
     public String displayExitMessage(){
-        return "Salir del Programa\n" +
-                        "============================================\n" +
-                        "    ¡Gracias por proteger Asturias!\n" +
+        String message = "\r\n" +
+                        "====================================================\n" +
+                        "    \n" + "¡Gracias por proteger Asturias!\n" +
+                        "\n" +
                         "    ¡Nos vemos en la próxima cacería paranormal!\n" +
-                        "============================================";
+                        "====================================================\n";
+        System.out.println(message);
+        return message;
     }
 
 }

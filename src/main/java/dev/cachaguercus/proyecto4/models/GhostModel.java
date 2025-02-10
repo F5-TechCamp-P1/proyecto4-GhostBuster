@@ -66,7 +66,4 @@ public class GhostModel {
     public void setCapture_date(LocalDate capture_date) {
         this.capture_date = capture_date;
     }
-
-    
-
 }
