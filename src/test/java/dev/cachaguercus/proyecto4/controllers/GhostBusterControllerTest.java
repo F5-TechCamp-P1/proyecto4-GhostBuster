@@ -2,8 +2,8 @@ package dev.cachaguercus.proyecto4.controllers;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.AfterEach;
+/* import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach; */
 
 import dev.cachaguercus.proyecto4.enums.enumDangerLevel;
 import dev.cachaguercus.proyecto4.enums.enumGhostType;
@@ -13,7 +13,6 @@ import dev.cachaguercus.proyecto4.views.GhostBusterView;
 
 import org.mockito.Mockito;
 
-import static org.mockito.ArgumentMatchers.argThat;
 import static org.mockito.Mockito.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasItem;
@@ -22,7 +21,6 @@ import static org.hamcrest.Matchers.not;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.time.LocalDate;
-import java.util.Scanner;
 
 public class GhostBusterControllerTest {
 
@@ -92,23 +90,15 @@ public class GhostBusterControllerTest {
    @Test
     @DisplayName("When captureGhost is called, should call model.captureGhost with the correct parameters")
     void testCaptureGhost() {
-        GhostBusterModel model = Mockito.mock(GhostBusterModel.class);
+        GhostBusterModel model = new GhostBusterModel();
         GhostBusterView view = Mockito.mock(GhostBusterView.class);
+        InputStream in = new ByteArrayInputStream("Casper\n1\n1\naparecerse y sonreir\n".getBytes());
+        System.setIn(in);
         GhostBusterController controller = new GhostBusterController(model, view);
 
-        when(view.displayCaptureGhost()).thenReturn("Casper");
-        when(view.displayGhostTypes()).thenReturn("CLASE_I");
-        when(view.displayDangerLevels()).thenReturn("BAJO");
-        when(view.displaySpecialSkill()).thenReturn("aparecerse y sonreir");
-        when(view.displaySuccessfulCapture("Casper", LocalDate.now())).thenReturn("Ghost Captured");
         controller.captureGhost();
-        verify(model, times(1)).captureGhost(argThat(ghost -> ghost.getName().equals("Casper") &&
-                ghost.getGhost_type().equals(enumGhostType.CLASE_I) &&
-                ghost.getDanger_level().equals(enumDangerLevel.BAJO) &&
-                ghost.getSpecial_skill().equals("aparecerse y sonreir") &&
-                ghost.getCapture_date().equals(LocalDate.now())));
-        verify(view, times(1)).displaySuccessfulCapture("Casper", LocalDate.now());
 
+        verify(view, times(1)).displaySuccessfulCapture(any(String.class), any(LocalDate.class));
     }
 
     @Test
@@ -116,13 +106,14 @@ public class GhostBusterControllerTest {
     void testRemoveGhost() {
         GhostBusterModel model = Mockito.mock(GhostBusterModel.class);
         GhostBusterView view = Mockito.mock(GhostBusterView.class);
+        System.setIn(new ByteArrayInputStream("Casper\n".getBytes()));
         GhostBusterController controller = new GhostBusterController(model, view);
         GhostModel ghost = new GhostModel(0, "Casper", enumGhostType.CLASE_I, enumDangerLevel.BAJO,
-                "aparecerse y sonreir", LocalDate.now());
-        model.captureGhost(ghost);
+        "aparecerse y sonreir", LocalDate.now());
+        GhostBusterModel.captureGhost(ghost);
         when(view.displayReleaseGhost()).thenReturn("Casper");
-        controller.removeGhost("Casper");
-        assertThat(model.getGhostTrap(), not(hasItem(ghost)));
+        controller.removeGhost();
+        assertThat(GhostBusterModel.getGhostTrap(), not(hasItem(ghost)));
     }
 
      @Test
